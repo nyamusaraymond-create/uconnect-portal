@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>U•Connect Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo">U<span class="dot">•</span>Connect</h1>
+      <p class="subtitle">UConnect Portal — Empowering Universities & Agents</p>
+    </header>
+
+    <main class="card">
+      <section id="login-section">
+        <h2>Sign in</h2>
+        <form id="login-form">
+          <label>Email
+            <input id="email" type="email" placeholder="you@example.com" required>
+          </label>
+          <label>Password
+            <input id="password" type="password" placeholder="Enter password" required>
+          </label>
+          <div class="actions">
+            <button type="submit" id="signin-btn">Sign in</button>
+            <button type="button" id="admin-toggle" class="secondary">Admin</button>
+          </div>
+        </form>
+        <p id="message" class="message"></p>
+      </section>
+
+      <section id="signedin-section" class="hidden">
+        <h3>Signed in as <span id="current-email"></span></h3>
+        <p>Role: <span id="current-role"></span></p>
+        <div class="actions">
+          <button id="dashboard-btn">Go to dashboard</button>
+          <button id="logout-btn" class="secondary">Logout</button>
+        </div>
+      </section>
+    </main>
+
+    <aside id="admin-panel" class="card hidden">
+      <div class="admin-header">
+        <h3>Admin — Manage Users</h3>
+        <p class="muted">Create users, assign role, and generate invite links</p>
+      </div>
+
+      <form id="add-user-form" class="small-form">
+        <label>New user email
+          <input id="new-email" type="email" placeholder="user@example.com" required>
+        </label>
+        <label>New user password
+          <input id="new-password" type="text" placeholder="Password" required>
+        </label>
+        <label>Role
+          <select id="new-role">
+            <option value="agent">Agent</option>
+            <option value="university">University</option>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <div class="actions">
+          <button type="submit">Add user</button>
+          <button type="button" id="reset-user" class="secondary">Reset</button>
+        </div>
+      </form>
+
+      <div class="user-list-wrap">
+        <h4>Users (<span id="user-count">0</span>)</h4>
+        <div id="user-list"></div>
+      </div>
+
+      <p class="note">This is a client-side demo: users are stored in your browser's localStorage. For production, connect to a secure backend (see README).</p>
+    </aside>
+
+    <footer class="footer">© U•Connect</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
